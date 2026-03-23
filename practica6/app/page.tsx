@@ -9,7 +9,7 @@ export default async function PaginaInicio() {
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold mb-6">Bienvenido</h1>
+      <h1 className="text-2xl font-semibold mb-1">Bienvenido</h1>
       <div className="grid grid-cols-2 gap-4 mb-10">
         <div className="border rounded-lg p-6 bg-white">
           <p className="text-xs text-gray-400 uppercase mb-1">Servicios</p>

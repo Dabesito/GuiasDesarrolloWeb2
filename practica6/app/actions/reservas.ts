@@ -8,7 +8,10 @@ const EsquemaReserva = z.object({
   nombre: z.string().min(1, "El nombre es obligatorio."),
   correo: z.string().email("El correo no es válido."),
   fecha: z.string().min(1, "La fecha es obligatoria."),
-  servicioId: z.coerce.number({ message: "Debe seleccionar un servicio." }),
+  servicioId: z.coerce
+    .number({ error: () => ({ message: "Debe seleccionar un servicio." }) })
+    .int()
+    .positive("Debe seleccionar un servicio."),
 });
 
 export async function crearReserva(_estadoPrevio: any, formData: FormData) {

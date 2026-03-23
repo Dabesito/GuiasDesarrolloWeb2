@@ -55,7 +55,11 @@ export default async function PaginaReservas({
                 <p className="text-xs text-gray-500 mt-1">
                   {reserva.servicio.nombre} - {new Date(reserva.fecha).toLocaleString("es-SV")}
                 </p>
-                <span className={`inline-block mt-2 text-xs px-2 py-0.5 rounded border ${etiquetaEstado[reserva.estado]}`}>
+                <span
+                  className={`inline-block mt-2 text-xs px-2 py-0.5 rounded border ${
+                    etiquetaEstado[reserva.estado] ?? etiquetaEstado.pendiente
+                  }`}
+                >
                   {reserva.estado}
                 </span>
               </div>

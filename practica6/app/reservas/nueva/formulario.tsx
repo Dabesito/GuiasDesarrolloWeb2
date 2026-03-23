@@ -21,25 +21,36 @@ export function FormularioReserva({ servicios }: { servicios: Servicio[] }) {
 
   return (
     <form action={accion} className="space-y-5">
+      {estado.mensaje && (
+        <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded px-3 py-2">
+          {estado.mensaje}
+        </p>
+      )}
       <div>
         <label className={label}>Nombre</label>
         <input name="nombre" type="text" className={input} />
         {estado.errores?.nombre && (
-          <p className="text-xs text-red-500 mt-1">{estado.errores.nombre}</p>
+          <p className="text-xs text-red-500 mt-1">
+            {estado.errores.nombre.join(" ")}
+          </p>
         )}
       </div>
       <div>
         <label className={label}>Correo</label>
         <input name="correo" type="email" className={input} />
         {estado.errores?.correo && (
-          <p className="text-xs text-red-500 mt-1">{estado.errores.correo}</p>
+          <p className="text-xs text-red-500 mt-1">
+            {estado.errores.correo.join(" ")}
+          </p>
         )}
       </div>
       <div>
         <label className={label}>Fecha y hora</label>
         <input name="fecha" type="datetime-local" className={input} />
         {estado.errores?.fecha && (
-          <p className="text-xs text-red-500 mt-1">{estado.errores.fecha}</p>
+          <p className="text-xs text-red-500 mt-1">
+            {estado.errores.fecha.join(" ")}
+          </p>
         )}
       </div>
       <div>
@@ -53,7 +64,9 @@ export function FormularioReserva({ servicios }: { servicios: Servicio[] }) {
           ))}
         </select>
         {estado.errores?.servicioId && (
-          <p className="text-xs text-red-500 mt-1">{estado.errores.servicioId}</p>
+          <p className="text-xs text-red-500 mt-1">
+            {estado.errores.servicioId.join(" ")}
+          </p>
         )}
       </div>
       <BotonEnviar />
